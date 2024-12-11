@@ -13,18 +13,24 @@ const cashierStatus = {};
 User.init = function () {
     return new Promise((resolve, reject) => {
         let promises;
+        // alert('123')
         //Request cashier for token-cash exchange
         promises = floGlobals.subAdmins.map(cashierID => floCloudAPI.requestGeneralData(TYPE_CASHIER_REQUEST, {
             senderID: myFloID,
             receiverID: cashierID,
             group: "Cashiers",
             callback: userUI.renderCashierRequests //UI_fn
+           
         }));
+         
         //Request received from other Users for token
         promises.push(floCloudAPI.requestGeneralData(TYPE_MONEY_REQUEST, {
             receiverID: myFloID,
             callback: userUI.renderMoneyRequests //UI_fn
+           
         }));
+     
+       
         //Check online status of cashiers
         promises.push(floCloudAPI.requestStatus(Array.from(floGlobals.subAdmins), {
             callback: (d, e) => {
@@ -43,6 +49,7 @@ User.init = function () {
                 }
             }
         }))
+        // console.log('Sahiba kjjjjjjjj')
         /*
         promises.push(floCloudAPI.requestObjectData("UPI", { //Is this needed?
             callback: UI_RENDER_FN
@@ -88,8 +95,9 @@ Object.defineProperty(User, 'moneyRequests', {
         let fk = floCloudAPI.util.filterKey(TYPE_MONEY_REQUEST, {
             receiverID: myFloID,
         });
+      
         return floGlobals.generalData[fk];
-    }
+    }  
 });
 
 User.findCashier = function () {
@@ -166,7 +174,10 @@ User.requestToken = function (floID, amount, remark = '') {
             .catch(error => reject(error))
     })
 }
+ 
 
+// *********************
+ 
 User.decideRequest = function (request, note) {
     return new Promise((resolve, reject) => {
         floCloudAPI.noteApplicationData(request.vectorClock, note, {
@@ -245,7 +256,9 @@ Object.defineProperty(Cashier, 'Requests', {
             receiverID: myFloID
         });
         console.debug(fk, floGlobals.generalData[fk]);
+        // console.log(generalData, "generalDataaaaaa")
         return floGlobals.generalData[fk];
+      
     }
 });
 

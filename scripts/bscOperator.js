@@ -403,22 +403,118 @@
       // Convert the amount to the smallest unit of the token
       const amountWei = ethers.utils.parseUnits(amount.toString(), decimals);
   
-      // Estimate gas limit for the transaction
-      const gasLimit = await tokenContract.estimateGas.transfer(receiver, amountWei);
+
+
+
+
+
+
+
+      // // Estimate gas limit for the transaction
+      // const gasLimit = await tokenContract.estimateGas.transfer(receiver, amountWei);
   
-      // Get the current gas price
-      const gasPrice = await wallet.provider.getGasPrice();
+      // // Get the current gas price
+      // const gasPrice = await wallet.provider.getGasPrice();
   
-      // Calculate the gas cost
-      const gasCost = gasPrice.mul(gasLimit);
+      // // Calculate the gas cost
+      // const gasCost = gasPrice.mul(gasLimit);
   
-      console.log(`Gas cost: ${ethers.utils.formatEther(gasCost)} BNB`);
-  
-      // Check if wallet has enough balance to cover gas fees
-      const balance = await wallet.getBalance();
-      if (balance.lt(gasCost)) {
-        throw new Error("Insufficient funds for gas fee");
-      }
+      //  console.log(`Gas cost: ${ethers.utils.formatEther(gasCost)} BNB`);
+        
+      // // Check if wallet has enough balance to cover gas fees
+      // const balance = await wallet.getBalance();
+      // if (balance.lt(gasCost)) {
+      //   throw new Error("Insufficient funds for gas fee");
+      // }
+
+
+
+
+
+
+
+
+      // ********************************I was changed code from top and use this code*************
+      try {
+        // Estimate gas limit for the transaction
+        const gasLimit = await tokenContract.estimateGas.transfer(receiver, amountWei);
+    
+        // Get the current gas price
+        const gasPrice = await wallet.provider.getGasPrice();
+    
+        // Calculate the gas cost
+        const gasCost = gasPrice.mul(gasLimit);
+        const formattedGasCost = ethers.utils.formatEther(gasCost);
+    
+        // Display the gas cost in the popup
+        const gasCostDisplay = document.getElementById('gas_cost_display');
+        const gasCostValue = document.getElementById('gas_cost_value');
+    
+        gasCostValue.textContent = formattedGasCost;
+        gasCostDisplay.style.display = 'block'; // Show the gas cost section
+    
+        console.log(`Gas cost: ${formattedGasCost} BNB`);
+    
+        // Check if wallet has enough balance to cover gas fees
+        const balance = await wallet.getBalance();
+        if (balance.lt(gasCost)) {
+            throw new Error("Insufficient funds for gas fee");
+        }
+    } catch (error) {
+        console.error("Error estimating gas:", error);
+        alert(error.message); // Optionally show an alert for errors
+    }
+    
+      // */*************** */
+      
+    
+      
+ 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
       // Call the transfer function on the USDC contract

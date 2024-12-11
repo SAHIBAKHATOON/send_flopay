@@ -40,6 +40,7 @@
             blockchain: "FLO",
             adminID: "FH64hLqB71e6i11rnZZW7hvzoH8daCwy1J",
             currency: "rupee",
+            //   currency: "USD",
             application: "blockchainUPI"
         }
     </script>
@@ -1235,77 +1236,47 @@
             </sm-form>
         </section>
     </sm-popup>
-    <sm-popup id="token_transfer_popup">
+    <sm-popup id="token_transfer_popup"> 
         <header slot="header" class="popup__header">
-            <button class="popup__header__close justify-self-start">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
-                    fill="#000000">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-                </svg>
-            </button>
-            <h3 id="token_transfer__title"></h3>
-        </header>
-        <section class="grid gap-2">
-            <sm-form>
-                <sm-input id="token_transfer__receiver" placeholder="FLO/BSC address"
-                    data-flo-id animate required autofocus>
-                    <button slot="right" class="icon-only" onclick="openPopup('saved_ids_popup')"
-                        title="Select from saved IDs">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
-                            width="24px" fill="#000000">
-                            <path d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M21 5v14h2V5h-2zm-4 14h2V5h-2v14zM14 5H2c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM8 7.75c1.24 0 2.25 1.01 2.25 2.25S9.24 12.25 8 12.25 5.75 11.24 5.75 10 6.76 7.75 8 7.75zM12.5 17h-9v-.75c0-1.5 3-2.25 4.5-2.25s4.5.75 4.5 2.25V17z" />
-                        </svg>
-                    </button>
-                </sm-input>
-
-                <!-- ******************************************** -->
-                <sm-input id="token_transfer__amount" type="number" min="10" placeholder="Enter USDT" data-flo-id
-                    animate required autofocus>
-                    <!-- ***************some changes in onclick function removed bracket code -->
-                    <button slot="right" class="icon-only" onclick="openPopup('')" title="Select from saved IDs">
-                    </button>
-                    <div class="asset-symbol flex" slot="icon"><svg class="icon" xmlns="http://www.w3.org/2000/svg"
-                            id="Layer_1" data-name="Layer 1" viewBox="0 0 339.43 295.27">
-                            <title>tether-usdt-logo</title>
-                            <path
-                                d="M62.15,1.45l-61.89,130a2.52,2.52,0,0,0,.54,2.94L167.95,294.56a2.55,2.55,0,0,0,3.53,0L338.63,134.4a2.52,2.52,0,0,0,.54-2.94l-61.89-130A2.5,2.5,0,0,0,275,0H64.45a2.5,2.5,0,0,0-2.3,1.45h0Z"
-                                style="fill:#50af95;fill-rule:evenodd"></path>
-                            <path
-                                d="M191.19,144.8v0c-1.2.09-7.4,0.46-21.23,0.46-11,0-18.81-.33-21.55-0.46v0c-42.51-1.87-74.24-9.27-74.24-18.13s31.73-16.25,74.24-18.15v28.91c2.78,0.2,10.74.67,21.74,0.67,13.2,0,19.81-.55,21-0.66v-28.9c42.42,1.89,74.08,9.29,74.08,18.13s-31.65,16.24-74.08,18.12h0Zm0-39.25V79.68h59.2V40.23H89.21V79.68H148.4v25.86c-48.11,2.21-84.29,11.74-84.29,23.16s36.18,20.94,84.29,23.16v82.9h42.78V151.83c48-2.21,84.12-11.73,84.12-23.14s-36.09-20.93-84.12-23.15h0Zm0,0h0Z"
-                                style="fill:#fff;fill-rule:evenodd"></path>
-                            <script xmlns=""></script>
-                        </svg></div>
-
-                </sm-input>
-                <!-- ******************************************* -->
-                <!-- <sm-input id="token_transfer__amount" type="number" placeholder="0" required min="1" step="0.01">
-                    <svg slot="icon" class="icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
-                        height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
-                        <g>
-                            <rect fill="none" height="24" width="24" />
-                        </g>
-                        <g>
-                            <g>
-                                <path
-                                    d="M13.66,7C13.1,5.82,11.9,5,10.5,5L6,5V3h12v2l-3.26,0c0.48,0.58,0.84,1.26,1.05,2L18,7v2l-2.02,0c-0.25,2.8-2.61,5-5.48,5 H9.77l6.73,7h-2.77L7,14v-2h3.5c1.76,0,3.22-1.3,3.46-3L6,9V7L13.66,7z" />
-                            </g>
-                        </g>
-                    </svg>
-                </sm-input> -->
-                <sm-input id="token_transfer__remark" pattern="[A-Za-z]" error-text="Only text allowed"
-                    placeholder="Add a message" animate></sm-input>
-                <div class="multi-state-button">
-                    <button id="token_transfer__button" class="button button--primary cta" onclick=" executeUserAction()"
-                        type="submit">Send</button>
-
-                </div>
-            </sm-form>
-        </section>
+             <button class="popup__header__close justify-self-start">
+                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"> <path d="M0 0h24v24H0V0z" fill="none" /> <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" /> </svg> 
+                </button> 
+                <h3 id="token_transfer__title"></h3>
+             </header>
+                 <section class="grid gap-2">
+                     <sm-form> <sm-input id="token_transfer__receiver" placeholder="FLO/BSC address" data-flo-id animate required autofocus>
+                         <button slot="right" class="icon-only" onclick="openPopup('saved_ids_popup')" title="Select from saved IDs"> 
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"> <path d="M0 0h24v24H0z" fill="none" /> <path d="M21 5v14h2V5h-2zm-4 14h2V5h-2v14zM14 5H2c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM8 7.75c1.24 0 2.25 1.01 2.25 2.25S9.24 12.25 8 12.25 5.75 11.24 5.75 10 6.76 7.75 8 7.75zM12.5 17h-9v-.75c0-1.5 3-2.25 4.5-2.25s4.5.75 4.5 2.25V17z" /> </svg> </button> 
+                        </sm-input> 
+                        <!-- ******************************************** --> 
+                        <sm-input id="token_transfer__amount" type="number" min="10" placeholder="Enter USDT" data-flo-id animate required autofocus> 
+                            <!-- ***************some changes in onclick function removed bracket code -->
+                              <button slot="right" class="icon-only" onclick="openPopup('saved_ids_popup')" title="Select from saved IDs"> </button>
+                               <div class="asset-symbol flex" slot="icon">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 339.43 295.27"> <title>tether-usdt-logo</title> <path d="M62.15,1.45l-61.89,130a2.52,2.52,0,0,0,.54,2.94L167.95,294.56a2.55,2.55,0,0,0,3.53,0L338.63,134.4a2.52,2.52,0,0,0,.54-2.94l-61.89-130A2.5,2.5,0,0,0,275,0H64.45a2.5,2.5,0,0,0-2.3,1.45h0Z" style="fill:#50af95;fill-rule:evenodd"></path> <path d="M191.19,144.8v0c-1.2.09-7.4,0.46-21.23,0.46-11,0-18.81-.33-21.55-0.46v0c-42.51-1.87-74.24-9.27-74.24-18.13s31.73-16.25,74.24-18.15v28.91c2.78,0.2,10.74.67,21.74,0.67,13.2,0,19.81-.55,21-0.66v-28.9c42.42,1.89,74.08,9.29,74.08,18.13s-31.65,16.24-74.08,18.12h0Zm0-39.25V79.68h59.2V40.23H89.21V79.68H148.4v25.86c-48.11,2.21-84.29,11.74-84.29,23.16s36.18,20.94,84.29,23.16v82.9h42.78V151.83c48-2.21,84.12-11.73,84.12-23.14s-36.09-20.93-84.12-23.15h0Zm0,0h0Z" style="fill:#fff;fill-rule:evenodd"></path> <script xmlns=""></script> </svg></div> 
+                            </sm-input> 
+                            <!-- ******************************************* --> <!-- <sm-input id="token_transfer__amount" type="number" placeholder="0" required min="1" step="0.01"> <svg slot="icon" class="icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"> <g> <rect fill="none" height="24" width="24" /> </g> <g> <g> <path d="M13.66,7C13.1,5.82,11.9,5,10.5,5L6,5V3h12v2l-3.26,0c0.48,0.58,0.84,1.26,1.05,2L18,7v2l-2.02,0c-0.25,2.8-2.61,5-5.48,5 H9.77l6.73,7h-2.77L7,14v-2h3.5c1.76,0,3.22-1.3,3.46-3L6,9V7L13.66,7z" /> </g> </g> </svg> </sm-input> -->
+                              <sm-input id="token_transfer__remark" pattern="[A-Za-z]" error-text="Only text allowed" placeholder="Add a message" animate></sm-input> 
+     
+                                    <!-- ******************using this code for gae fee section --> 
+                                     <div>
+                                        <h3>Fees</h3>
+                                        <span>Approximate fee: <b>0.000029983 BNB</b></span>
+                                        <p>*Exact fee will be calculated after you fill all the required fields</p>
+                                     </div>
+                                     <section class="grid gap-2"> 
+                                        <div id="gas_cost_display" class="popup-info" style="display: none; color: white; font-weight: bold;"> 
+                                            Gas cost: <span id="gas_cost_value"></span> BNB </div> 
+                                            </section> 
+                                            <!-- *********************************** -->
+                               <div class="multi-state-button">
+                                 <button id="token_transfer__button" class="button button--primary cta" onclick="executeUserAction()" type="submit">
+                                Send</button> </div>
+                                   
+                                </sm-form> 
+                                </section> 
     </sm-popup>
+    
     <!-- ************RUPEE POPUP**************** -->
     <sm-popup id="token_transfer_popup_rupee">
         <header slot="header" class="popup__header">
@@ -1355,13 +1326,13 @@
 
                 </sm-input>
                 
-                <sm-input id="token_transfer__remark" pattern="[A-Za-z]" error-text="Only text allowed"
+                <!-- <sm-input id="token_transfer__remark" pattern="[A-Za-z]" error-text="Only text allowed"
                     placeholder="Add a message" animate></sm-input>
                 <div class="multi-state-button">
                     <button id="token_transfer__button" class="button button--primary cta" onclick="executeUserAction()"
                         type="submit">Send</button>
 
-                </div>
+                </div> -->
             </sm-form>
         </section>
     </sm-popup>
@@ -3601,46 +3572,123 @@
             }
         };
 
+        // userUI.renderMoneyRequests = function (requests, error = null) {
+        //     if (error)
+        //         return console.error(error);
+        //     else if (typeof requests !== "object" || requests === null)
+        //         return;
+        //     if (appState.currentPage === 'requests') {
+        //         for (let r in requests) {
+        //             getRef('payment_request_history').querySelectorAll(`[data-vc="${r}"]`).forEach(card => card.remove());
+        //             getRef('payment_request_history').prepend(render.paymentRequestCard(requests[r]));
+        //         }
+        //     }
+        //     if (appState.currentPage === 'home') {
+        //         for (let r in requests) {
+        //             getRef('pending_payment_requests').querySelectorAll(`[data-vc="${r}"]`).forEach(card => card.remove());
+        //         }
+        //     }
+        //     if (floGlobals.loaded) {
+        //         for (let r in requests) {
+        //             if (!requests[r].note) {
+        //                 notify(`You have received payment request from ${getFloIdTitle(requests[r].senderID)}`, '', {
+        //                     action: {
+        //                         label: 'View',
+        //                         callback: () => {
+        //                             window.location.hash = `#/requests`
+        //                         }
+        //                     }
+        //                 });
+        //             }
+        //         }
+        //     }
+        //     let totalRequests = 0;
+        //     for (const request in User.moneyRequests) {
+        //         if (!User.moneyRequests[request].note) totalRequests++;
+        //     }
+        //     if (totalRequests) {
+        //         addNotificationBadge('requests_notification_button', totalRequests)
+        //     } else {
+        //         removeNotificationBadge('requests_notification_button')
+        //     }
+        // };
+
+
+
+        // ************************
         userUI.renderMoneyRequests = function (requests, error = null) {
-            if (error)
-                return console.error(error);
-            else if (typeof requests !== "object" || requests === null)
-                return;
-            if (appState.currentPage === 'requests') {
-                for (let r in requests) {
-                    getRef('payment_request_history').querySelectorAll(`[data-vc="${r}"]`).forEach(card => card.remove());
-                    getRef('payment_request_history').prepend(render.paymentRequestCard(requests[r]));
-                }
+    if (error) {
+        console.error(error);
+        return;
+    }
+    
+    if (typeof requests !== "object" || requests === null) {
+        return;
+    }
+
+    if (appState.currentPage === 'requests') {
+        for (let r in requests) {
+            getRef('payment_request_history')
+                .querySelectorAll(`[data-vc="${r}"]`)
+                .forEach(card => card.remove());
+            
+            if (requests[r].currency === 'USDT') {
+                getRef('payment_request_history').prepend(render.paymentRequestCard(requests[r]));
             }
-            if (appState.currentPage === 'home') {
-                for (let r in requests) {
-                    getRef('pending_payment_requests').querySelectorAll(`[data-vc="${r}"]`).forEach(card => card.remove());
-                }
+        }
+    }
+
+    if (appState.currentPage === 'home') {
+        for (let r in requests) {
+            getRef('pending_payment_requests')
+                .querySelectorAll(`[data-vc="${r}"]`)
+                .forEach(card => card.remove());
+
+            // Only handle USDT requests
+            if (requests[r].currency === 'USDT') {
+                getRef('pending_payment_requests').prepend(render.paymentRequestCard(requests[r]));
             }
-            if (floGlobals.loaded) {
-                for (let r in requests) {
-                    if (!requests[r].note) {
-                        notify(`You have received payment request from ${getFloIdTitle(requests[r].senderID)}`, '', {
-                            action: {
-                                label: 'View',
-                                callback: () => {
-                                    window.location.hash = `#/requests`
-                                }
-                            }
-                        });
+        }
+    }
+
+    if (floGlobals.loaded) {
+        for (let r in requests) {
+            if (!requests[r].note && requests[r].currency === 'USDT') {
+                notify(`You have received a USDT payment request from ${getFloIdTitle(requests[r].senderID)}`, '', {
+                    action: {
+                        label: 'View',
+                        callback: () => {
+                            window.location.hash = `#/requests`;
+                        }
                     }
-                }
+                });
             }
-            let totalRequests = 0;
-            for (const request in User.moneyRequests) {
-                if (!User.moneyRequests[request].note) totalRequests++;
-            }
-            if (totalRequests) {
-                addNotificationBadge('requests_notification_button', totalRequests)
-            } else {
-                removeNotificationBadge('requests_notification_button')
-            }
-        };
+        }
+    }
+
+    let totalRequests = 0;
+    for (const request in User.moneyRequests) {
+        if (!User.moneyRequests[request].note && User.moneyRequests[request].currency === 'USDT') {
+            totalRequests++;
+        }
+    }
+
+    if (totalRequests) {
+        addNotificationBadge('requests_notification_button', totalRequests);
+    } else {
+        removeNotificationBadge('requests_notification_button');
+    }
+};
+
+
+
+
+
+
+
+
+
+        // ************************
         const pendingTransactionsObserver = new MutationObserver((mutations) => {
             mutations.forEach(mutation => {
                 if (mutation.type === 'childList') {
@@ -3658,14 +3706,18 @@
                 fill: 'forwards',
                 easing: 'ease'
             }
+            //  alert('Abc')
             if (getRef('notifications_panel').classList.contains('hidden')) {
                 const pendingPaymentRequests = document.createDocumentFragment();
                 for (const transactionId in User.moneyRequests) {
                     if (!User.moneyRequests[transactionId].note) {
+                        console.log((User.moneyRequests[transactionId]), "Sahibaaaaaaaaaaaa")
                         pendingPaymentRequests.prepend(render.paymentRequestCard(User.moneyRequests[transactionId]))
                     }
                 }
                 getRef('pending_payment_requests').innerHTML = ''
+                
+                console.log(pendingPaymentRequests, "pendingPaymentRequests")
                 getRef('pending_payment_requests').append(pendingPaymentRequests)
 
                 getRef('notifications_panel').classList.remove('hidden')
@@ -3966,7 +4018,8 @@
             if (currency === 'btc') {
                 formattingOptions.maximumFractionDigits = 8;
             }
-            return amount.toLocaleString(currency === 'inr' ? `en-IN` : 'en-US', formattingOptions)
+             return amount.toLocaleString(currency === 'inr' ? `en-IN` : 'en-US', formattingOptions)
+           
         }
         function copyToClipboard(textToCopy) {
             navigator.clipboard.writeText(textToCopy)
@@ -4100,7 +4153,10 @@
                 clone.querySelector('.payment-request__requestor').textContent = getFloIdTitle(senderID);
                 clone.querySelector('.payment-request__remark').textContent = remark;
                 clone.querySelector('.payment-request__time').textContent = getFormattedTime(time);
-                clone.querySelector('.payment-request__amount').textContent = amount.toLocaleString(`en-IN`, { style: 'currency', currency: 'INR' });
+                // clone.querySelector('.payment-request__amount').textContent = amount.toLocaleString(`en-IN`, { style: 'currency', currency: 'INR' });
+                   clone.querySelector('.payment-request__amount').textContent = amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+
                 const status = note ? note.split(':')[0] : 'PENDING';
                 if (note) {
                     clone.firstElementChild.href = `#/transaction?transactionId=${vectorClock}&type=request`;
@@ -4332,7 +4388,10 @@
         };
         // SOME CHANGES save_upi_popup INTO save_upi_popup_1******************************
         function getTransactionsHistory(filters = floGlobals.appliedFilters || {}) {
-            const { asset = 'all', type = 'all', limit = 0 } = filters;
+             let { asset = 'all', type = 'all', limit = 0 } = filters;
+            asset = "usdt";
+            console.log(asset, "getTransactionsHistory  abc")
+
             return new Promise((resolve, reject) => {
                 let promises = [];
                 if (asset === 'all')
@@ -4341,7 +4400,8 @@
                     promises = [getRupeeTransactions(type)];
                 else if (asset === 'btc')
                     promises = [getBtcTransactions(type)];
-
+                //  console.log(promises, "aaaaaaaaaaaaaa")
+                //  promises = [];
                 Promise.all(promises).then((transactions) => {
                     let allTransactions = [];
                     for (const txs of transactions) {
@@ -4349,6 +4409,8 @@
                     }
                     allTransactions.sort((a, b) => b.time - a.time)
                     if (limit)
+
+    
                         allTransactions = allTransactions.slice(0, limit)
                     resolve(allTransactions)
                 }).catch(error => {
@@ -4893,41 +4955,41 @@
 
 
 // // *******************RUPEE POPUP***********************************
-function showTokenTransfer_rupee(type) {
-            const button = getRef('token_transfer__button');
-            button.textContent = type;
-            currentUserAction = type;
+// function showTokenTransfer_rupee(type) {
+//             const button = getRef('token_transfer__button');
+//             button.textContent = type;
+//             currentUserAction = type;
 
-            if (type === 'send') {
-                getRef('token_transfer__title_rupee').textContent = 'Send rupee';
-            } else {
-                getRef('token_transfer__title_rupee').textContent = 'Request rupee';
-            }
+//             if (type === 'send') {
+//                 getRef('token_transfer__title_rupee').textContent = 'Send rupee';
+//             } else {
+//                 getRef('token_transfer__title_rupee').textContent = 'Request rupee';
+//             }
 
-            if (appState.lastPage === 'contact') {
-                const receiverField = getRef('token_transfer__receiver');
-                receiverField.value = appState.params.floId;
-                receiverField.readOnly = true;
-                receiverField.querySelector('button').classList.add('hidden');
-            } else {
-                const receiverField = getRef('token_transfer__receiver');
-                receiverField.readOnly = false;
-                receiverField.querySelector('button').classList.remove('hidden');
-            }
+//             if (appState.lastPage === 'contact') {
+//                 const receiverField = getRef('token_transfer__receiver');
+//                 receiverField.value = appState.params.floId;
+//                 receiverField.readOnly = true;
+//                 receiverField.querySelector('button').classList.add('hidden');
+//             } else {
+//                 const receiverField = getRef('token_transfer__receiver');
+//                 receiverField.readOnly = false;
+//                 receiverField.querySelector('button').classList.remove('hidden');
+//             }
 
-            openPopup('token_transfer_popup_rupee');
+//             openPopup('token_transfer_popup_rupee');
 
-            if (appState.lastPage === 'contact') {
-                getRef('token_transfer__amount').focus();
-            }
+//             if (appState.lastPage === 'contact') {
+//                 getRef('token_transfer__amount').focus();
+//             }
 
-            // Call validation to set the button state initially
-            validateTokenTransferForm();
-        }
+//             // Call validation to set the button state initially
+//             validateTokenTransferForm();
+//         }
 
-        // Add event listeners to trigger validation on input change
-        getRef('token_transfer__receiver').addEventListener('input', validateTokenTransferForm);
-        getRef('token_transfer__amount').addEventListener('input', validateTokenTransferForm);
+//         // Add event listeners to trigger validation on input change
+//         getRef('token_transfer__receiver').addEventListener('input', validateTokenTransferForm);
+//         getRef('token_transfer__amount').addEventListener('input', validateTokenTransferForm);
 
 
 
@@ -5131,6 +5193,8 @@ function showTokenTransfer_rupee(type) {
                                     type: 'success'
                                 });
                             })
+                               
+                           
                             .catch(error => {
                                 console.error('Transaction failed:', error);
                                 notify('Transaction failed. Please try again later.', 'error');
@@ -5140,7 +5204,9 @@ function showTokenTransfer_rupee(type) {
                             });
                     }
                 });
-        };
+            };
+                 
+        
 
         // ********
 
@@ -5462,7 +5528,7 @@ function showTokenTransfer_rupee(type) {
                 feeMemo.memoized = true;
             }
         }
-
+       
         getRef('send_transaction').onclick = evt => {
             buttonLoader('send_transaction', true)
             floDapps.user.private.then(async privateKey => {
@@ -5471,6 +5537,7 @@ function showTokenTransfer_rupee(type) {
                 console.debug(senders, receivers, amounts, fee);
                 btcOperator.sendTx(senders, privKeys, receivers, amounts, fee).then(txid => {
                     console.log(txid);
+                    
                     closePopup();
                     getRef('txid').value = txid;
                     openPopup('txid_popup');
@@ -5490,8 +5557,9 @@ function showTokenTransfer_rupee(type) {
                 closePopup();
                 return false;
             })
+           
         }
-
+        
 
         // *************
 
