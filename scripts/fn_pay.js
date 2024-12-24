@@ -16,6 +16,7 @@ User.init = function () {
         // alert('123')
         //Request cashier for token-cash exchange
         promises = floGlobals.subAdmins.map(cashierID => floCloudAPI.requestGeneralData(TYPE_CASHIER_REQUEST, {
+            
             senderID: myFloID,
             receiverID: cashierID,
             group: "Cashiers",
@@ -23,6 +24,7 @@ User.init = function () {
            
         }));
          
+        
         //Request received from other Users for token
         promises.push(floCloudAPI.requestGeneralData(TYPE_MONEY_REQUEST, {
             receiverID: myFloID,
@@ -34,6 +36,7 @@ User.init = function () {
         //Check online status of cashiers
         promises.push(floCloudAPI.requestStatus(Array.from(floGlobals.subAdmins), {
             callback: (d, e) => {
+                // alert("Sahiba")
                 if (e) return console.error(e);
                 for (let i in d)
                     cashierStatus[i] = d[i];
@@ -49,6 +52,7 @@ User.init = function () {
                 }
             }
         }))
+       
         // console.log('Sahiba kjjjjjjjj')
         /*
         promises.push(floCloudAPI.requestObjectData("UPI", { //Is this needed?
@@ -91,10 +95,12 @@ Object.defineProperty(User, 'cashierRequests', {
 });
 
 Object.defineProperty(User, 'moneyRequests', {
+
     get: function () {
         let fk = floCloudAPI.util.filterKey(TYPE_MONEY_REQUEST, {
             receiverID: myFloID,
         });
+        console.log(fk, "fkkkkkkkk")
       
         return floGlobals.generalData[fk];
     }  
@@ -166,7 +172,7 @@ User.sendToken = function (receiverID, amount, remark = '', options = {}) {
 User.requestToken = function (floID, amount, remark = '') {
     return new Promise((resolve, reject) => {
         floCloudAPI.sendGeneralData({
-            amount: amount,
+            amount:  amount,
             remark: remark
         }, TYPE_MONEY_REQUEST, {
             receiverID: floID
